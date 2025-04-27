@@ -46,6 +46,7 @@ Inside the card you'll type out the details of an example we'll use for the temp
 </section>
 <h3 class="name">Bulbasaur</h3>
 <p class="type">Grass</p>
+<button type="button" class=".shiny-btn"></button>
 <!-- rest of html -->
 ```
 
@@ -123,13 +124,15 @@ Add the following to remove the front sprite on hover, and at the same time have
 
 /* Rest of the file */
 
-.card:hover .front {
-    display: none;
+.card:hover {
+  .front {
+      display: none;
+  }
+  .back {
+    display: block;
+  }
 }
 
-.card:hover .back {
-    display: block;
-}
 ```
 
 _the `:hover` being applied to the identifier is known as a pseudo-class. It's a **keyword** (reserved in most cases, but I'm unsure about css). There are many kinds of pseudo-classes but hover is personally my most used._
@@ -153,7 +156,6 @@ button {
     border-style: solid;
     border-color: white;
     background-color: rgba(224, 224, 224, 0.952);
-
     min-width: 50%;
 }
 ```
@@ -218,9 +220,31 @@ button:hover {
     scale: 105%
 }
 
-
 .pokedex_num {
     align-self: end;
     margin-bottom: -20px;
 }
+```
+
+### Adding a Loader
+
+Go into the `/src/index.html` and remove the comments from the tags referencing a "loader", that way as the data loads in the user sees something instead of a static background for a few seconds.
+
+```html
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style-reset.css" />
+
+  <!-- this line right here -->
+  <link rel="stylesheet" href="loader.css" />
+</head>
+```
+
+```html
+
+<body>
+  <!-- this line right here -->
+  <div class="loader" id="loader"></div>
 ```

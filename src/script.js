@@ -77,11 +77,11 @@ async function createAllCards(data) {
  */
 
 async function run() {
-    hideMainSection();
+    // hideMainSection();
     const data = await parseAllData();
-    await createAllCards(data);
-    showMainSection();
-    removeLoader();
+    // await createAllCards(data);
+    // showMainSection();
+    // removeLoader();
 }
 
 
